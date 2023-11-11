@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Component
 public interface StudentRepository extends JpaRepository<Student, Long> {
-    List<Student> findByGroup(Group group);
+    List<Student> findByGroup_Number(Integer groupNumber);
     
     List<Student> findByFamilyAndNameAndGroup(String family, String name, Group group);
 }

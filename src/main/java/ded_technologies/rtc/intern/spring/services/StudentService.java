@@ -10,17 +10,15 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import ded_technologies.rtc.intern.spring.models.Student;
 import ded_technologies.rtc.intern.spring.models.Subject;
+import ded_technologies.rtc.intern.spring.objects.StudentWithAverageGrade;
 import ded_technologies.rtc.intern.spring.objects.StudentsAverageGradeResponse;
 import ded_technologies.rtc.intern.spring.repositories.GroupRepository;
 import ded_technologies.rtc.intern.spring.repositories.PerformanceRepository;
 import ded_technologies.rtc.intern.spring.repositories.StudentRepository;
 import ded_technologies.rtc.intern.spring.repositories.SubjectRepository;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Set;
-import java.util.stream.Collectors;
-import org.springframework.data.domain.Sort;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -43,28 +41,23 @@ public class StudentService {
     }
     
     @Transactional
-    public List<StudentsAverageGradeResponse> getStudentsByGrupNumber(int groupNumber) {
-	List<StudentsAverageGradeResponse> response = new ArrayList<>();
-        List<Student> students = new ArrayList<>();
-        Iterator<Group> groups = groupRepository.findByNumber(groupNumber).iterator();
-        while(groups.hasNext()){
-            students.addAll(studentRepository.findByGroup(groups.next()));
-            List<Performance> grades = performanceRepository.findByStudentIn(students);
-            for (Student student : students){
-                Iterator<Performance> iterator = grades.iterator();
-                double sum=0, loop=0;
-                while(iterator.hasNext()){
-                    Performance grade = iterator.next();
-                    if (grade.getStudent().equals(student)){
-                        sum=sum+grade.getGrade();
-                        loop++;
-                    }
+    public List<StudentWithAverageGrade> getStudentsByGrupNumber(int groupNumber) {
+	List<StudentWithAverageGrade> response = new ArrayList<>();
+        List<Student> students = studentRepository.findByGroup_Number(groupNumber);
+        Iterator<Performance> grades = performanceRepository.findByStudent_Group_Number(groupNumber).iterator();
+        for (Student student : students){
+            double sum=0, loop=0;
+            while(grades.hasNext()){
+                Performance grade = grades.next();
+                if (grade.getStudent().equals(student)){
+                    sum=sum+grade.getGrade();
+                    loop++;
                 }
-                StudentsAverageGradeResponse sag = new StudentsAverageGradeResponse();
-                sag.setStudent(student);
-                sag.setAverageGrade(sum/loop);
-                response.add(sag);
             }
+            StudentWithAverageGrade swag = new StudentWithAverageGrade();
+            BeanUtils.copyProperties(student,swag);
+            swag.setAverageGrade(sum/loop);
+            response.add(swag);
         }
         return response;
     }

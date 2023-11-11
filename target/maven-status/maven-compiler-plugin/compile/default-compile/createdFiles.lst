@@ -6,6 +6,7 @@ ded_technologies\rtc\intern\spring\repositories\StudentRepository.class
 ded_technologies\rtc\intern\spring\RTCInternSpring.class
 ded_technologies\rtc\intern\spring\repositories\SubjectRepository.class
 ded_technologies\rtc\intern\spring\models\Student.class
+ded_technologies\rtc\intern\spring\objects\StudentWithAverageGrade.class
 ded_technologies\rtc\intern\spring\interfaces\DataLoader.class
 ded_technologies\rtc\intern\spring\controllers\StudentsController.class
 ded_technologies\rtc\intern\spring\interfaces\StorageService.class

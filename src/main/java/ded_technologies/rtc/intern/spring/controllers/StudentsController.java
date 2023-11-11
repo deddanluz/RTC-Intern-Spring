@@ -5,6 +5,7 @@
 package ded_technologies.rtc.intern.spring.controllers;
 
 import ded_technologies.rtc.intern.spring.models.Student;
+import ded_technologies.rtc.intern.spring.objects.StudentWithAverageGrade;
 import ded_technologies.rtc.intern.spring.objects.StudentsAverageGradeResponse;
 import ded_technologies.rtc.intern.spring.objects.UpdateGradeRequest;
 import ded_technologies.rtc.intern.spring.services.StudentService;
@@ -31,7 +32,7 @@ public class StudentsController {
     }
 
     @GetMapping("/{groupNumber}")
-    public List<StudentsAverageGradeResponse> getStudentsByGroupNumber(@PathVariable Integer groupNumber) {
+    public List<StudentWithAverageGrade> getStudentsByGroupNumber(@PathVariable Integer groupNumber) {
         return studentService.getStudentsByGrupNumber(groupNumber);
     }
     

@@ -18,5 +18,6 @@ import org.springframework.stereotype.Repository;
 @Component
 public interface PerformanceRepository extends JpaRepository<Performance, Long> {
     List<Performance> findByStudentIn(Iterable students);
+    List<Performance> findByStudent_Group_Number(Integer groupNumber);
     List<Performance> findByStudentInAndSubjectIn(Iterable students, Iterable subjects);
 }
