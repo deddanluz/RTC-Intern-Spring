@@ -29,12 +29,12 @@ public class StudentsController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/{groupNumber}")
+    @GetMapping("groups/{groupNumber}")
     public List<StudentWithAverageGrade> getStudentsByGroupNumber(@PathVariable Integer groupNumber) {
         return studentService.getStudentsByGrupNumber(groupNumber);
     }
     
-    @PutMapping("/{groupNumber}/{family}/{name}/{subject}")
+    @PutMapping("groups/{groupNumber}/family/{family}/name/{name}/subject/{subject}")
     
     public List<Student> putGradeByStudentAndGroupAndSubject(@PathVariable Integer groupNumber, @PathVariable String family,
             @PathVariable String name, @PathVariable String subject, @RequestBody UpdateGradeRequest request) {
