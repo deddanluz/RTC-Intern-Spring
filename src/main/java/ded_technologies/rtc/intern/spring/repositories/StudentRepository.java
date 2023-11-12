@@ -4,7 +4,6 @@
  */
 package ded_technologies.rtc.intern.spring.repositories;
 
-import ded_technologies.rtc.intern.spring.models.Group;
 import ded_technologies.rtc.intern.spring.models.Student;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,5 +19,5 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByGroup_Number(Integer groupNumber);
     
-    List<Student> findByFamilyAndNameAndGroup(String family, String name, Group group);
+    List<Student> findByFamilyAndNameAndGroup_Number(String family, String name, Integer groupNumber);
 }

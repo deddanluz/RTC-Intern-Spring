@@ -6,11 +6,9 @@ package ded_technologies.rtc.intern.spring.controllers;
 
 import ded_technologies.rtc.intern.spring.models.Student;
 import ded_technologies.rtc.intern.spring.objects.StudentWithAverageGrade;
-import ded_technologies.rtc.intern.spring.objects.StudentsAverageGradeResponse;
 import ded_technologies.rtc.intern.spring.objects.UpdateGradeRequest;
 import ded_technologies.rtc.intern.spring.services.StudentService;
 import java.util.List;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -42,14 +40,4 @@ public class StudentsController {
             @PathVariable String name, @PathVariable String subject, @RequestBody UpdateGradeRequest request) {
         return studentService.putGradeByStudentAndGroupAndSubject(family, name, groupNumber, subject, request.getGrade());
     }
-    
-    @GetMapping
-    public ResponseEntity getStudents(){
-        try {
-            return ResponseEntity.ok().body("Сервис работает");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Ошибка");
-        }
-    }
-    
 }

@@ -4,7 +4,6 @@
  */
 package ded_technologies.rtc.intern.spring.repositories;
 
-import ded_technologies.rtc.intern.spring.models.Group;
 import ded_technologies.rtc.intern.spring.models.Subject;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;

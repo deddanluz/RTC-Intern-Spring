@@ -7,13 +7,9 @@ ded_technologies\rtc\intern\spring\RTCInternSpring.class
 ded_technologies\rtc\intern\spring\repositories\SubjectRepository.class
 ded_technologies\rtc\intern\spring\models\Student.class
 ded_technologies\rtc\intern\spring\objects\StudentWithAverageGrade.class
-ded_technologies\rtc\intern\spring\interfaces\DataLoader.class
 ded_technologies\rtc\intern\spring\controllers\StudentsController.class
-ded_technologies\rtc\intern\spring\interfaces\StorageService.class
 ded_technologies\rtc\intern\spring\models\GroupSubject.class
 ded_technologies\rtc\intern\spring\repositories\GroupRepository.class
-ded_technologies\rtc\intern\spring\interfaces\StudentCrudRepository.class
 ded_technologies\rtc\intern\spring\models\Group.class
 ded_technologies\rtc\intern\spring\services\StudentService.class
-ded_technologies\rtc\intern\spring\objects\StudentsAverageGradeResponse.class
 ded_technologies\rtc\intern\spring\models\Subject.class
