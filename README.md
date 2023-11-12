@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS intern.performance (
 **Допустимым вариантом также является установка параметра `spring.jpa.hibernate.ddl-auto` в файле `src/main/resources/application.properties` в `create` или `update`.**
 
 ## REST API
-Приложение предоставляет доступ к REST API по адресу: `http://localhost:8080/students`. Реализованы методы:
+Приложение предоставляет доступ к REST API интерфейсу по адресу: `http://localhost:8080/students`. Реализованы методы:
 - GET (получения средних оценок учеников по номеру группы).
   Обрабатываются запросы вида `http://localhost:8080/students/groups/{groupNumber}`.
   где `groupNumber` должно быть целым числом (в противном случае будет получена ошибка 400).
