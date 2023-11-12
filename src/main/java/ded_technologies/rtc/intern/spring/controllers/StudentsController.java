@@ -29,7 +29,7 @@ public class StudentsController {
         this.studentService = studentService;
     }
 
-    @GetMapping("groups/{groupNumber}")
+    @GetMapping("groups/{groupNumber}/average_grades")
     public List<StudentWithAverageGrade> getStudentsByGroupNumber(@PathVariable Integer groupNumber) {
         return studentService.getStudentsByGrupNumber(groupNumber);
     }
