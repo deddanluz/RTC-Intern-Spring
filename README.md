@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS intern.performance (
 ## REST API
 Приложение предоставляет доступ к REST API интерфейсу по адресу: `http://localhost:8080/students`. Реализованы методы:
 - GET (получения средних оценок учеников по номеру группы).
-  Обрабатываются запросы вида `http://localhost:8080/students/groups/{groupNumber}`.
+  Обрабатываются запросы вида `http://localhost:8080/students/groups/{groupNumber}/average_grades`.
   где `groupNumber` должно быть целым числом (в противном случае будет получена ошибка 400).
   В ответ будет возвращена следующая структура (например), содержащая информацию об ученике и средней оценки:
 
