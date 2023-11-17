@@ -7,13 +7,11 @@ package ded_technologies.rtc.intern.spring.repositories;
 import ded_technologies.rtc.intern.spring.models.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Даниил
  */
-@Repository
 @Component
 public interface GroupRepository extends JpaRepository<Group, Long> {
     
