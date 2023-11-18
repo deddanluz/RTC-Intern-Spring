@@ -13,7 +13,14 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class StudentWithAverageGrade {
-    private Student student;
-    private double averageGrade;
+public class Student {
+    private Long id;
+
+    private String family;
+
+    private String name;
+
+    private Integer age;
+
+    private Group group;
 }

@@ -5,7 +5,6 @@
 package ded_technologies.rtc.intern.spring.repositories;
 
 import ded_technologies.rtc.intern.spring.models.Subject;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +14,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public interface SubjectRepository extends JpaRepository<Subject, Long> {
-    List<Subject> findBySubject(String subject);
+    
 }
 

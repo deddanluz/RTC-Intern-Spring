@@ -4,7 +4,6 @@
  */
 package ded_technologies.rtc.intern.spring.controllers;
 
-import ded_technologies.rtc.intern.spring.models.Student;
 import ded_technologies.rtc.intern.spring.objects.StudentWithAverageGrade;
 import ded_technologies.rtc.intern.spring.objects.UpdateGradeRequest;
 import ded_technologies.rtc.intern.spring.services.StudentService;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *ss
+ *
  * @author Даниил
  */
 @RestController
@@ -31,13 +30,12 @@ public class StudentsController {
 
     @GetMapping("groups/{groupNumber}/average_grades")
     public List<StudentWithAverageGrade> getStudentsByGroupNumber(@PathVariable Integer groupNumber) {
-        return studentService.getStudentsByGrupNumber(groupNumber);
+        return studentService.getStudentsByGroupNumber(groupNumber);
     }
     
-    @PutMapping("groups/{groupNumber}/family/{family}/name/{name}/subject/{subject}")
-    
-    public List<Student> putGradeByStudentAndGroupAndSubject(@PathVariable Integer groupNumber, @PathVariable String family,
-            @PathVariable String name, @PathVariable String subject, @RequestBody UpdateGradeRequest request) {
-        return studentService.putGradeByStudentAndGroupAndSubject(family, name, groupNumber, subject, request.getGrade());
+    @PutMapping("{studentId}/subject/{subjectId}")
+    public ded_technologies.rtc.intern.spring.objects.Student putGradeByStudentAndSubject(@PathVariable Integer studentId,
+            @PathVariable Integer subjectId, @RequestBody UpdateGradeRequest request) {
+        return studentService.putGradeByStudentAndSubject(studentId, subjectId, request.getGrade());
     }
 }
