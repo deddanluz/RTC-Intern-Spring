@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Даниил
  */
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/")
 public class StudentsController {
     private final StudentService studentService;
 
@@ -28,12 +28,12 @@ public class StudentsController {
         this.studentService = studentService;
     }
 
-    @GetMapping("groups/{groupNumber}/average_grades")
+    @GetMapping("group/{groupNumber}/average_grades")
     public List<StudentWithAverageGrade> getStudentsByGroupNumber(@PathVariable Integer groupNumber) {
         return studentService.getStudentsByGroupNumber(groupNumber);
     }
     
-    @PutMapping("{studentId}/subject/{subjectId}")
+    @PutMapping("student/{studentId}/subject/{subjectId}")
     public ded_technologies.rtc.intern.spring.objects.Student putGradeByStudentAndSubject(@PathVariable Integer studentId,
             @PathVariable Integer subjectId, @RequestBody UpdateGradeRequest request) {
         return studentService.putGradeByStudentAndSubject(studentId, subjectId, request.getGrade());
